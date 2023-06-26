@@ -1,8 +1,6 @@
 ```{r}
-# Load the caret package
+# Load the dataset and install Caret Package
 library(caret)
-
-# Load the iris dataset
 data(iris)
 
 # Split the data into training and testing sets
@@ -14,10 +12,10 @@ testData <- iris[-trainIndex, ]
 # Train a support vector machine (SVM) model using the training data
 model <- train(Species ~ ., data = trainData, method = "svmRadial")
 
-# Make predictions on the test data using the trained model
+# Predict test data using the trained model
 predictions <- predict(model, newdata = testData)
 
-# Evaluate the accuracy of the model
+# Evaluate model accuracy
 accuracy <- mean(predictions == testData$Species)
 cat("Accuracy:", accuracy)
 ```
